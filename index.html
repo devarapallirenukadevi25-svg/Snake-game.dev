@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Snake Game</title>
+    <!-- Modern Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Game Header with Scores -->
+        <header class="game-header">
+            <h1 class="logo-text">NEON <span class="highlight">SNAKE</span></h1>
+            <div class="score-board">
+                <div class="score-card">
+                    <span class="score-label">SCORE</span>
+                    <span id="current-score" class="score-value">0</span>
+                </div>
+                <div class="score-card">
+                    <span class="score-label">BEST</span>
+                    <span id="high-score" class="score-value">0</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-wrapper">
+            <canvas id="game-board" width="400" height="400"></canvas>
+
+            <!-- Overlay: Start Screen -->
+            <div id="start-screen" class="overlay active">
+                <h2 class="neon-text">Ready to Play?</h2>
+                <div class="instructions">
+                    <p>Use <strong class="highlight">Arrow Keys</strong> or <strong class="highlight">WASD</strong> to move.</p>
+                    <p>Press <strong class="highlight">Spacebar</strong> to Pause/Resume.</p>
+                    <p>Eat the glowing food to grow and speed up!</p>
+                </div>
+                <div class="difficulty-selector">
+                    <button class="diff-btn" data-level="easy">EASY</button>
+                    <button class="diff-btn active" data-level="medium">MEDIUM</button>
+                    <button class="diff-btn" data-level="hard">HARD</button>
+                </div>
+                <button id="start-btn" class="glow-btn">START GAME</button>
+            </div>
+
+            <!-- Overlay: Pause Screen -->
+            <div id="pause-screen" class="overlay">
+                <h2 class="neon-text">PAUSED</h2>
+                <button id="resume-btn" class="glow-btn">RESUME</button>
+            </div>
+
+            <!-- Overlay: Game Over Screen -->
+            <div id="game-over-screen" class="overlay">
+                <h2 class="neon-text error">GAME OVER!</h2>
+                <p class="final-score-text">You scored <span id="final-score" class="highlight">0</span></p>
+                <div class="difficulty-selector">
+                    <button class="diff-btn" data-level="easy">EASY</button>
+                    <button class="diff-btn active" data-level="medium">MEDIUM</button>
+                    <button class="diff-btn" data-level="hard">HARD</button>
+                </div>
+                <button id="restart-btn" class="glow-btn">PLAY AGAIN</button>
+            </div>
+        </main>
+
+        <!-- Mobile Touch Controls -->
+        <div class="mobile-controls">
+            <div class="control-row">
+                <button class="ctrl-btn" id="btn-up">▲</button>
+            </div>
+            <div class="control-row">
+                <button class="ctrl-btn" id="btn-left">◀</button>
+                <button class="ctrl-btn" id="btn-down">▼</button>
+                <button class="ctrl-btn" id="btn-right">▶</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
